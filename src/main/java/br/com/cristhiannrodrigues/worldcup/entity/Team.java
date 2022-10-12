@@ -21,15 +21,15 @@ public class Team implements Serializable {
     private Integer id;
 
     @NonNull
-    private String idApi;
+    private String fifa_code;
 
     @NonNull
-    private String name;
+    private String name_en;
 
     @NonNull
     private String flag;
 
     @NonNull
-    private String fifaCode;
+    private String iso2;
 
 }
