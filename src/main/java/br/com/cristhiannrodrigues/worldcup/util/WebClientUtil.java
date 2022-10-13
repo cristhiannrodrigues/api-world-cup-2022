@@ -13,8 +13,8 @@ import reactor.core.publisher.Mono;
 public class WebClientUtil {
 
     private final String URL_BASE = "http://api.cup2022.ir/api/v1";
-    private final String LOGIN = "#";
-    private final String PASSWORD = "#";
+    private final String LOGIN = "hacktober@gmail.com";
+    private final String PASSWORD = "Ta123456";
 
     public Mono getTeams(String uri, HttpMethod method) {
         return WebClient.builder()
