@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.http.HttpMethod;
+import org.springframework.util.Assert;
 
 public class WebClientUtilsTest {
 
@@ -19,6 +20,11 @@ public class WebClientUtilsTest {
     @Test
     public void testConectionTeams() throws JSONException {
         webClientUtil.getTeams("/teams", HttpMethod.GET);
+    }
+
+    @Test
+    public void testToken() {
+        webClientUtil.getTokenApi();
     }
 
 }

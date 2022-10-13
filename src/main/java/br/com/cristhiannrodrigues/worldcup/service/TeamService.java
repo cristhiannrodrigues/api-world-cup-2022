@@ -29,7 +29,6 @@ public class TeamService {
     public List<TeamDTO> getTeamsDTO() {
         List<TeamDTO> teamsDTO = new ArrayList<>();
         for(Team team : getTeams()) {
-            System.out.println("ITERANDO ITEM: " + team.getName_en());
             teamsDTO.add(new TeamDTO(
                     team.getId(),
                     team.getFifa_code(),
@@ -54,6 +53,7 @@ public class TeamService {
         if(!teams.getData().isEmpty()) {
             for(Team team : teams.getData()) {
                 teamRepository.save(team);
+                update = true;
             }
         }
 
