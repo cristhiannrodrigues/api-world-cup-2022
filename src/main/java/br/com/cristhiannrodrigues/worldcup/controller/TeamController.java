@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping(TeamController.PATH)
 public class TeamController {
 
-    public static final String PATH = "/team";
+    public static final String PATH = "/teams";
 
     @Autowired
     private TeamService teamService;
