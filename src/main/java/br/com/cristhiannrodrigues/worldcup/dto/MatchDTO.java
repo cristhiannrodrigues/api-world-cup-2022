@@ -2,19 +2,18 @@ package br.com.cristhiannrodrigues.worldcup.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
-public class TeamDTO {
+public class MatchDTO {
 
     private Integer id;
-    private String fifa_code;
-    private String name_en;
-    private String flag;
-    private String groups;
+    private String home_team_en;
+    private String away_team_en;
+    private String local_date;
+    private String home_flag;
+    private String away_flag;
 
 }

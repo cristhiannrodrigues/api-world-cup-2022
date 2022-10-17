@@ -1,16 +1,11 @@
 package br.com.cristhiannrodrigues.worldcup.util;
 
-import br.com.cristhiannrodrigues.worldcup.dto.TokenApiDTO;
-import br.com.cristhiannrodrigues.worldcup.dto.TokenDTO;
-import br.com.cristhiannrodrigues.worldcup.service.TeamService;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.http.HttpMethod;
 import org.springframework.util.Assert;
-import reactor.core.publisher.Mono;
 
 public class WebClientUtilsTest {
 
@@ -18,11 +13,13 @@ public class WebClientUtilsTest {
 
     private static WebClientUtil webClientUtil;
     private static  Gson gson;
+    private static TokenDTO tokenDTO;
 
     @BeforeAll
     public static void init() {
         gson = new Gson();
         webClientUtil = new WebClientUtil();
+        tokenDTO = gson.fromJson(webClientUtil.getTokenApi().block().toString(), TokenDTO.class);
     }
 
     @Test
@@ -32,8 +29,12 @@ public class WebClientUtilsTest {
 
     @Test
     public void testToken() {
-        TokenDTO tokenDTO = gson.fromJson(webClientUtil.getTokenApi().block().toString(), TokenDTO.class);
         Assert.hasText(SUCCESS_MESSAGE, tokenDTO.getStatus());
+    }
+
+    @Test
+    public void testImportMatch() {
+        webClientUtil.getMatch("/match", HttpMethod.GET);
     }
 
 }

@@ -1,5 +1,6 @@
 package br.com.cristhiannrodrigues.worldcup.entity;
 
+
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,11 +9,11 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@Table(name = "team")
-public class Team implements Serializable {
+@AllArgsConstructor
+@ToString
+@Table(name = "match")
+public class Match implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,18 +22,24 @@ public class Team implements Serializable {
     private Integer id;
 
     @NonNull
-    private String fifa_code;
+    private boolean finished;
 
     @NonNull
-    private String name_en;
+    private String local_date;
 
     @NonNull
-    private String flag;
+    private Integer matchday;
 
     @NonNull
-    private String iso2;
+    private String home_team_en;
 
     @NonNull
-    private String groups;
+    private String away_team_en;
+
+    @NonNull
+    private String home_flag;
+
+    @NonNull
+    private String away_flag;
 
 }
